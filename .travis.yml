@@ -1,0 +1,18 @@
+sudo: required
+language: ruby
+cache: bundler
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+      
+    packages:
+      - google-chrome-stable
+      
+before_script:
+  - gem install bundler:2.0.1
+  - bundle install
+  - bundle update
+
+script: 'cucumber features/*'
