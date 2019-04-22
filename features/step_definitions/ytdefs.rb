@@ -20,7 +20,7 @@ Then("videos of large rodents are returned$") do
     expect(page).to have_content 'Animal'
 end
 
-Then(/^Agile video "{string}"/) do |isAgile|
+Then("Agile video {string}") do |isAgile|
     
     puts page.inspect
     if (page.has_content?("Agile"))
