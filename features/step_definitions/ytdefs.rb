@@ -12,7 +12,7 @@ When(/^I search for "(.*?)"$/) do |search|
   fill_in 'search_query', :with => search
   puts page.inspect
   #find_button('search-icon-legacy').trigger('click')
-  click_on 'Search'
+  click_on 'Buscar'
 end
 
 Then("videos of large rodents are returned$") do
@@ -20,7 +20,8 @@ Then("videos of large rodents are returned$") do
     expect(page).to have_content 'Animal'
 end
 
-Then("Agile video {string}") do |isAgile|
+
+Then(/^Agile video is "([^"]*)"$/) do |isAgile|
     
     puts page.inspect
     if (page.has_content?("Agile"))
