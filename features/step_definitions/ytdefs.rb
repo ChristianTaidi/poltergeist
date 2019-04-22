@@ -44,7 +44,7 @@ end
 
 When("I look at the description") do
     puts page.inspect
-    @description = within("//div[@id='description']"){page.find('.').text}
+    @description = within("#description"){page.find('.').text}
     
 end
 
