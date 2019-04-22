@@ -15,7 +15,7 @@ When(/^I search for "(.*?)"$/) do |search|
   click_on 'Search'
 end
 
-Then(/^videos of large rodents are returned$/) do
+Then("videos of large rodents are returned$") do
     puts page.inspect
     expect(page).to have_content 'Animal'
 end
