@@ -79,7 +79,9 @@ GEM
     gherkin (6.0.17)
       c21e (~> 1.1.9)
       cucumber-messages (~> 2.1.2)
+    google-protobuf (3.7.0)
     google-protobuf (3.7.0-x86-mingw32)
+    google-protobuf (3.7.0-x86_64-linux)
     i18n (0.4.2)
     mail (2.2.20)
       activesupport (>= 2.3.6)
@@ -91,6 +93,8 @@ GEM
     mini_portile2 (2.4.0)
     multi_json (1.13.1)
     multi_test (0.1.2)
+    nokogiri (1.10.2)
+      mini_portile2 (~> 2.4.0)
     nokogiri (1.10.2-x86-mingw32)
       mini_portile2 (~> 2.4.0)
     os (1.0.0)
@@ -148,7 +152,9 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  ruby
   x86-mingw32
+  x86_64-linux
 
 DEPENDENCIES
   capybara
