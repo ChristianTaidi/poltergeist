@@ -12,7 +12,7 @@ When(/^I search for "(.*?)"$/) do |search|
   fill_in 'search_query', :with => search
   puts page.inspect
   #find_button('search-icon-legacy').trigger('click')
-  click_on 'Buscar'
+  click_on 'Search'
 end
 
 Then(/^videos of large rodents are returned$/) do
