@@ -6,6 +6,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'cucumber-rails'
+  gem 'rspec'
   gem 'capybara'
   gem 'poltergeist'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'

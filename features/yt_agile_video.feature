@@ -10,27 +10,27 @@ Feature: Is an agile video?
   Scenario: Agile found 
       Given I am on the YouTube page
       When I search for "Agile"
-      Then Agile video "found"
+      Then Agile video is "found"
       
   Scenario: Agile not found, RUP is not Agile
       Given I am on the YouTube page
       When I search for "RUP"
-      Then Agile video "not found"
+      Then Agile video is "not found"
       
-  Scenario: Agile description
+  Scenario: Agile Watch video
+      Given I searched for an agile video
+      When I click on it
+      Then It starts to play
+      
+  Scenario: Share agile video
       Given I am watching an agile video
-      When I look at the description
-      Then Description is "agile"
-      
-  Scenario: Not Agile description
-      Given I am not watching an agile video
-      When I look at the description
-      Then Description is "not agile"
+      When I click on the share button
+      Then Share options are shown
       
   Scenario: Agile recommendations
       Given I am watching an agile video
-      When I look at the recommendations
-      Then Agile video is "recommended"
+      When I click on the configuration button
+      Then Configuration properties are shown
       
   
       

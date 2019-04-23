@@ -15,9 +15,9 @@ When(/^I search for "(.*?)"$/) do |search|
   click_on 'Buscar'
 end
 
-Then("videos of large rodents are returned$") do
+Then("videos of large rodents are returned") do
     puts page.inspect
-    expect(page).to have_content 'Animal'
+    page.has_content?('Animal')
 end
 
 
@@ -31,42 +31,45 @@ Then(/^Agile video is "([^"]*)"$/) do |isAgile|
     
             found = 'not found'
     end
-    expect(found).to eq(isAgile)
+    found == isAgile
+end
+
+Given("I searched for an agile video") do
+    visit ('https://www.youtube.com/results?search_query=agile')
+end
+
+
+
+When("I click on it") do
+     click_on 'Agile en la vida diaria | Xavier Hidalgo | TEDxAndorraLaVella'
+    
+end
+
+
+Then("It starts to play") do 
+    puts page.inspect
+    page.find_by_id('movie_player')
 end
 
 Given("I am watching an agile video") do
-    visit ('https://youtu.be/BWAmq_WhTkM')
+    visit('https://www.youtube.com/watch?v=nGw23NDzRrg&t=2s')
 end
 
-Given("I am not watching an agile video") do
-    visit ('https://youtu.be/85RUTr_KtPo')
+
+When("I click on the share button") do
+    find('button[aria-label=Compartir]').trigger('click')
 end
 
-When("I look at the description") do
+Then("Share options are shown") do
     puts page.inspect
-    @description = within("#description"){page.find('.').text}
-    
+    page.has_content?('Copiar')
 end
 
-When("I look at the recommendations") do
+When("I click on the configuration button") do
+   find('button[aria-label=Configuración]').trigger('click') 
+end
+
+Then("Configuration properties are shown") do
     puts page.inspect
-    @recommendations = within("//div[@id='items']"){page.find('yt-formatted-string').text}
-    
-end
-
-Then("Description is {string}") do |isAgileDesc|
-    
-    if(@description.has_content?('Agilidad'))
-        desc = 'agile'
-    else
-        desc = 'not agile'
-    end
-    expect(desc).to eq(isAgileDesc)
-end
-
-Then("Agile video is {string}") do |isRecommended|
-    if(@recommendations.has_content?('Scrum'))
-        rec = 'recommended'
-    end
-    expect(rec).to eq(isRecommended)
+    find('button[aria-expanded=true]')
 end
