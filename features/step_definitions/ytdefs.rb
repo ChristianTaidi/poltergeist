@@ -12,7 +12,7 @@ When(/^I search for "(.*?)"$/) do |search|
   fill_in 'search_query', :with => search
   puts page.inspect
   #find_button('search-icon-legacy').trigger('click')
-  click_on 'Buscar'
+  click_on 'Search'
 end
 
 Then("videos of large rodents are returned") do
@@ -41,7 +41,7 @@ end
 
 
 When("I click on it") do
-     click_on 'Agile en la vida diaria | Xavier Hidalgo | TEDxAndorraLaVella'
+     click_on 'What is Agile?'
     
 end
 
@@ -62,7 +62,7 @@ end
 
 Then("Share options are shown") do
     puts page.inspect
-    page.has_content?('Copiar')
+    page.has_content?('Copyr')
 end
 
 When("I click on the configuration button") do
